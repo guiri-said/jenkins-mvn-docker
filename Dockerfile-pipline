@@ -1,0 +1,5 @@
+FROM eclipse-temurin:17
+WORKDIR /opt/app
+RUN apt update && apt install -y curl && apt install -y net-tools && apt install -y iputils-ping
+COPY target/Customer-0.0.1-SNAPSHOT.jar /opt/app/customer.jar
+ENTRYPOINT ["java", "-jar", "/opt/app/customer.jar"]
